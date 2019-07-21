@@ -15,6 +15,7 @@
     height: 150px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    /* border: 6px solid #F5F7F7; */
     border: 6px solid white;
     border-radius: 50%;
     position: absolute;
@@ -26,6 +27,8 @@
     height: 150px;
     background-repeat: no-repeat;
     background-position: center center;
+    margin-left: -8px;
+    margin-top: -7px;
 } 
 .camera {
     width: 48px;
@@ -45,6 +48,27 @@
 .content {
     padding-top: 100px;
 }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-group label {
+    font-weight: 600;
+}
+.form-control {
+    max-width: 250px;
+    width: 250px;
+    background-color: #F5F7F7;
+}
 input.invalid {
     border-color: red;
 }
+.content button {
+    width: 250px;
+    border: 2px solid #4685C5;
+    margin-top: 10px;
+    color: #4685C5;
+    font-weight: bolder;
+}
+

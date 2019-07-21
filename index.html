@@ -5,8 +5,6 @@
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="./css/custom.css">
-        <!-- Latest font-awesome CSS -->
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Popper JS -->
@@ -18,7 +16,7 @@
         <div class="header">
             <img src="./image/logo.png" alt="LOGO">
             <span class="avatar">
-                <img src="./image/users/user_1.jpg" alt="User">
+                <img src="./image/man.png" alt="User">
             </span>
             <span class="camera">
                 <input type="file" class="custom-file-input" id="customFile">
@@ -30,133 +28,25 @@
             <div class="container">
                 <form>
                     <div class="form-group">
-                        <label for="email">Email *</label>
+                        <label for="email">EMAIL *</label>
                         <input type="email" class="form-control" id="email" name="email" value="">
                     </div>
                     <div class="form-group">
-                        <label for="firstname">First Name *</label>
+                        <label for="firstname">FIRST NAME *</label>
                         <input type="text" class="form-control" id="firstname" name="firstname" value="">
                     </div>
                     <div class="form-group">
-                        <label for="lastname">Last Name *</label>
+                        <label for="lastname">LAST NAME *</label>
                         <input type="text" class="form-control" id="lastname" name="lastname" value="">
                     </div>
                     <div class="form-group">
-                        <label for="company">Company *</label>
+                        <label for="company">COMPANY *</label>
                         <input type="text" class="form-control" id="company" name="company" value="">
                     </div>
-                    <button type="button" class="btn btn-primary" id="sendBtn" onclick="validate();">Send</button>
+                    <button type="button" class="btn btn-default" id="sendBtn" onclick="validate();">SEND</button>
                 </form>
             </div>
         </div>
     </body>
-    <script>
-        function ValidateEmail(mail) 
-        {
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
-            {
-                return (true)
-            }
-            return (false)
-        }
-        function validate()
-        {
-            $("#email").removeClass("invalid")
-            $("#firstname").removeClass("invalid")
-            $("#lastname").removeClass("invalid")
-            $("#company").removeClass("invalid")
-
-            var str = $("#email").val();
-            if(str === "" || !ValidateEmail(str)) {
-                $("#email").addClass("invalid");
-            }
-            if(str != "")
-            {
-                var firstname = "";
-                var lastname = "";
-                var company = "";
-
-                var array1 = str.split(/[@]/);
-                //var name = array1[0];
-                var array2 = array1[1].split(/[.-_]/);
-                company = array2[0];
-
-                var array3 = array1[0].split(/[.-_]/);
-                firstname = array3[0];
-                lastname = "";
-                if(array3.length > 1)
-                     lastname = array3[1];
-                
-                if(firstname === "") {
-                    $("#firstname").addClass("invalid");
-                }
-                if(lastname === "") {
-                    $("#lastname").addClass("invalid");
-                }
-                if(company === "") {
-                    $("#company").addClass("invalid");
-                }
-                $("#firstname").val(firstname);
-                $("#lastname").val(lastname);
-                $("#company").val(company);
-                
-            }
-            else {
-                $("#firstname").addClass("invalid");
-                $("#lastname").addClass("invalid");
-                $("#company").addClass("invalid");
-            }
-        }
-        function handleFileSelect(evt) {
-                var files = evt.target.files; // FileList object
-
-                // Loop through the FileList and render image files as thumbnails.
-                for (var i = 0, f; f = files[i]; i++) {
-
-                // Only process image files.
-                if (!f.type.match('image.*')) {
-                    continue;
-                }
-
-                var reader = new FileReader();
-
-                // Closure to capture the file information.
-                reader.onload = (function(theFile) {
-                    return function(e) {
-                    // Render thumbnail.
-                    var content = ['<img class="thumb" src="', e.target.result,
-                                        '" title="', escape(theFile.name), '"/>'].join('');
-
-                    $(".avatar").html(content);
-                   
-                    };
-                })(f);
-
-                // Read in the image file as a data URL.
-                reader.readAsDataURL(f);
-                }
-            }
-
-        $(document).ready(function(){
-            const urlParams = new URLSearchParams(window.location.search);
-            const imageUrl = urlParams.get('imageUrl');
-
-            if(imageUrl != null)
-            {
-                $(".avatar img").attr('src',imageUrl);
-            }
-
-            $(document).on('keypress',function(e) {
-                if(e.which == 13) {
-                    validate();
-                }
-            });
-
-            
-            document.getElementById('customFile').addEventListener('change', handleFileSelect, false);
-
-        });
-
-        
-    </script>
+    <script src="./js/handle.js"></script>
 </html>
