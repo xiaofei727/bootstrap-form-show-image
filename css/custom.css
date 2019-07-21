@@ -1,0 +1,50 @@
+.header {
+    height: 200px;
+    background-color: #44474A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header img {
+    margin-bottom: 45px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.avatar {
+    width: 150px;
+    height: 150px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 6px solid white;
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    margin-top: 95px;
+}
+.avatar img {
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-position: center center;
+} 
+.camera {
+    width: 48px;
+    height: 48px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    margin-top: 141px;
+    margin-left: 60px;
+}
+.camera img {
+    margin-left: 0px;
+    margin-top: -39px;
+}
+.content {
+    padding-top: 100px;
+}
+input.invalid {
+    border-color: red;
+}
